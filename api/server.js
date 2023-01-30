@@ -5,7 +5,7 @@ const app = express();
 const cors = require("cors");
 const logger = require("morgan");
 
-
+const port = process.env.PORT || 5000;
 //routes
 const categoryRoute = require("./routes/categories.js");
 const productRoute = require("./routes/products.js");
@@ -35,7 +35,7 @@ app.use("/bills", billRoute);
 app.use("/auth", authRoute);
 app.use("/users", userRoute);
 
-app.listen(process.env.PORT || 5000, () => {
+app.listen(port, () => {
   connect();
-  console.log(process.env.PORT, "Portu dinleniyor..");
+  console.log(port, "Portu dinleniyor..");
 });
