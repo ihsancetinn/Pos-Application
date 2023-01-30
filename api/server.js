@@ -35,7 +35,7 @@ app.use("/bills", billRoute);
 app.use("/auth", authRoute);
 app.use("/users", userRoute);
 
-app.listen(process.env.PORT, () => {
+app.listen(process.env.PORT || 5000, () => {
   connect();
   console.log(process.env.PORT, "Portu dinleniyor..");
 });
