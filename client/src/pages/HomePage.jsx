@@ -13,7 +13,7 @@ const HomePage = () => {
 
   useEffect(() => {
     const getCategories = async () => {
-      const res = await fetch("http://localhost:5000/categories/get-all");
+      const res = await fetch(process.env.REACT_APP_SERVER_URL + "/categories/get-all");
       const data = await res.json();
       data &&
         setCategories(
@@ -31,7 +31,7 @@ const HomePage = () => {
   useEffect(() => {
     const getProducts = async () => {
       try {
-        const res = await fetch("http://localhost:5000/products/get-all");
+        const res = await fetch(process.env.REACT_APP_SERVER_URL + "/products/get-all");
         const data = await res.json();
         setProducts(data);
       } catch (error) {

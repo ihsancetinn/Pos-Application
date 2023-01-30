@@ -11,7 +11,7 @@ const Edit = () => {
   useEffect(() => {
     const getProducts = async () => {
       try {
-        const res = await fetch("http://localhost:5000/products/get-all");
+        const res = await fetch(process.env.REACT_APP_SERVER_URL +"/products/get-all");
         const data = await res.json();
         setProducts(data);
       } catch (error) {
@@ -25,7 +25,7 @@ const Edit = () => {
   useEffect(() => {
     const getCategories = async () => {
       try {
-        const res = await fetch("http://localhost:5000/categories/get-all");
+        const res = await fetch(process.env.REACT_APP_SERVER_URL +"/categories/get-all");
         const data = await res.json();
         data &&
           setCategories(
@@ -43,7 +43,7 @@ const Edit = () => {
 
   const onFinish = (values) => {
     try {
-      fetch("http://localhost:5000/products/update-product", {
+      fetch(process.env.REACT_APP_SERVER_URL +"/products/update-product", {
         method: "PUT",
         body: JSON.stringify({ ...values, productId: editingItem._id }),
         headers: { "Content-type": "application/json; charset=UTF-8" },
@@ -66,7 +66,7 @@ const Edit = () => {
   const deleteCategory = (id) => {
     if (window.confirm("Emin misiniz?")) {
       try {
-        fetch("http://localhost:5000/products/delete-product", {
+        fetch(process.env.REACT_APP_SERVER_URL + "/products/delete-product", {
           method: "DELETE",
           body: JSON.stringify({ productId: id }),
           headers: { "Content-type": "application/json; charset=UTF-8" },

@@ -12,7 +12,7 @@ const Edit = ({
   const onFinish = (values) => {
     
     try {
-      fetch("http://localhost:5000/categories/update-category", {
+      fetch(process.env.REACT_APP_SERVER_URL + "/categories/update-category", {
         method: "PUT",
         body: JSON.stringify({ ...values, categoryId: editingRow._id }),
         headers: { "Content-type": "application/json; charset=UTF-8" },
@@ -36,7 +36,7 @@ const Edit = ({
   const deleteCategory = (id) => {
     if (window.confirm("Silmek İstediğinize Emin Misiniz?")) {
       try {
-        fetch("http://localhost:5000/categories/delete-category", {
+        fetch(process.env.REACT_APP_SERVER_URL +"/categories/delete-category", {
           method: "DELETE",
           body: JSON.stringify({ categoryId: id }),
           headers: { "Content-type": "application/json; charset=UTF-8" },

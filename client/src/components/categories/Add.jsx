@@ -8,7 +8,7 @@ const Add = ({isAddModalOpen, setIsAddModalOpen,categories,setCategories}) => {
     const onFinish = (values) => {
         console.log(values)
         try {
-          fetch("http://localhost:5000/categories/add-category", {
+          fetch(process.env.REACT_APP_SERVER_URL + " /categories/add-category", {
             method: "POST",
             body: JSON.stringify(values),
             headers: { "Content-type": "application/json; charset=UTF-8" },
